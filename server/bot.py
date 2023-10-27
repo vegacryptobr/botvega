@@ -49,7 +49,7 @@ llm = ChatOpenAI(
 # setting pinecone
 embeddings = OpenAIEmbeddings()
 pinecone.init(api_key=pinecone_api_key, environment=pinecone_environment)
-index_name = 'vegabot'
+index_name ='vegabot'
 vectorstore = Pinecone.from_existing_index(index_name, embeddings)
 
 # setting memory
@@ -61,7 +61,7 @@ conversational_memory = ConversationBufferWindowMemory(
 
 # prompt template
 system_template = """
-Eu sou o Vegabot, e trabalho na Vega Crypto. Estou sempre à disposição para ajudar você a compreender o mundo do real digital. Pergunte-me qualquer coisa sobre o
+Eu sou o VegaChat, e trabalho na Vega Crypto. Estou sempre à disposição para ajudar você a compreender o mundo do real digital. Pergunte-me qualquer coisa sobre o
 real digital ou a expertise financeira da Vega Crypto. Minha especialidade é esclarecer dúvidas sobre o real digital e oferecer insights sobre a Vega Crypto e o
 cenário financeiro em geral. Se uma pergunta estiver além do meu conhecimento, serei transparente sobre meus limites, mas farei o possível para fornecer 
 respostas abrangentes com base nas informações que tenho. Não hesite em fazer suas perguntas sobre o real digital, estou aqui para apresentar respostas claras

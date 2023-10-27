@@ -405,7 +405,7 @@ export default function Chat() {
                     <CardContent className='flex flex-col items-center'>
                         <ScrollArea className="h-[75vh] w-full px-[2vw] max-lg:h-[93vh] max-lg:w-screen max-lg:px-[10vw]" >
                             <div className={tipsView}>
-                                <h1 className='text-neutral-800 text-[3rem] font-extrabold text-center mt-[7%]'>VEGACHAT</h1>
+                                <h1 className='text-neutral-800 text-[3rem] font-extrabold text-center mt-[7%]'>VEGA CHAT</h1>
 
                                 <div className='flex flex-wrap justify-center gap-[5vh] mt-[5vh] max-lg:flex-nowrap max-lg:flex-col max-lg:mt-10'>
                                     <CardTips text='O que é o Real Digital?' onClick={() => {
