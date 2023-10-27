@@ -16,7 +16,7 @@ const Register: React.FC<RegisterProps> = ({ onLoginClick }) => {
 
   const [loggedCard, setLoggedCard] = useState('absolute top-0 left-0 flex flex-col justify-center items-center bg-black/[0.5] backdrop-blur-sm w-[100vw] h-[100vh]')
   
-  const { setError, setLogMessage, setSuccessfulLogin } = useAuth();
+  const { setError, setLogMessage, setSuccessfulLogin, setToken } = useAuth();
   const { successfulLogin, error } = useAuth();
 
   const [showErrorCard, setShowErrorCard] = useState(false);
@@ -41,7 +41,7 @@ const Register: React.FC<RegisterProps> = ({ onLoginClick }) => {
       if(data.success) {
         setSuccessfulLogin(true)
         setLoggedCard('hidden')
-        localStorage.setItem("email", email)
+        setToken(data.email)
         setLogMessage(`Confirme o e-mail ${data.email} na sua caixa de entrada`)
       }
       

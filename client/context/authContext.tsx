@@ -1,12 +1,14 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 
 type AuthContextType = {
-  successfulLogin: boolean;
-  logMessage: string;
-  error: string;
-  setError: (error: string) => void;
-  setLogMessage: (message: string) => void;
-  setSuccessfulLogin: (isAuth: boolean) => void;
+    token: string;
+    successfulLogin: boolean;
+    logMessage: string;
+    error: string;
+    setToken: (token: string) => void;
+    setError: (error: string) => void;
+    setLogMessage: (message: string) => void;
+    setSuccessfulLogin: (isAuth: boolean) => void;
 };
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -19,9 +21,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [successfulLogin, setSuccessfulLogin] = useState(false);
     const [logMessage, setLogMessage] = useState('');
     const [error, setError] = useState('');
+    const [token, setToken] = useState('');
 
+    if (typeof window !== 'undefined') {
+        // Perform localStorage action
+        const token = localStorage.getItem('token') ?? ''
+        if (token.length > 1) {
+            localStorage.setItem('token', token);
+        }
+        if (token && token.length < 1) {
+            setToken(localStorage.getItem('token') ?? '');
+        }
+    }
     return (
-        <AuthContext.Provider value={{ successfulLogin, logMessage, error, setError, setLogMessage, setSuccessfulLogin }}>
+        <AuthContext.Provider value={{ successfulLogin, token, logMessage, error, setError, setToken, setLogMessage, setSuccessfulLogin }}>
             {children}
         </AuthContext.Provider>
     );

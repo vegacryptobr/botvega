@@ -122,18 +122,19 @@ export default function Chat() {
     const [userId, setUserId] = useState(0)
     const [tipsView, setTipsView] = useState('')
     const { successfulLogin, logMessage } = useAuth();
+    const {token, setToken} = useAuth()  
     const [loginMessage, setLoginMessage] = useState('')
     const [showLoginMessage, setShowLoginMessage] = useState(false);
 
     const [temporary, setTemporary] = useState('')
     const [count, setCount] = useState(0)
 
-    if (count === 0 && localStorage.getItem("email")) {
+    if (count === 0 && token) {
         const refresh = async () => {
             const response = await fetch('http://localhost:3000/messages', {
                 method: 'GET',
                 headers: {
-                    'Authorization': localStorage.getItem("email") ?? '',
+                    'Authorization': token ?? '',
                 }
             })
             const data = await response.json()
@@ -159,7 +160,7 @@ export default function Chat() {
                 const response = await fetch('http://localhost:3000/messages', {
                     method: 'GET',
                     headers: {
-                        'Authorization': localStorage.getItem("email") ?? '',
+                        'Authorization': token ?? '',
                     }
                 })
                 const data = await response.json()
@@ -290,7 +291,7 @@ export default function Chat() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': localStorage.getItem("email") ?? '',
+                    'Authorization': token ?? '',
                     'Messages-Remaining': messagesRemaning.toString()
                 },
                 body: JSON.stringify(requestBody),
@@ -361,7 +362,7 @@ export default function Chat() {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': localStorage.getItem("email") ?? '',
+                        'Authorization': token ?? '',
                         'Messages-Remaining': messagesRemaning.toString()
                     },
                     body: JSON.stringify(saveBody),
