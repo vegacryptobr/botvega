@@ -131,7 +131,7 @@ export default function Chat() {
 
     if (count === 0 && token) {
         const refresh = async () => {
-            const response = await fetch('http://localhost:3000/messages', {
+            const response = await fetch('http://127.0.0.1:8000/messages', {
                 method: 'GET',
                 headers: {
                     'Authorization': token ?? '',
@@ -147,7 +147,7 @@ export default function Chat() {
     useEffect(() => {
         const initializeConnection = async () => {
             setUserId(getRandomInt(1, 1000000))
-            await fetch('http://localhost:3000/init', {
+            await fetch('http://127.0.0.1:8000/init', {
                 method: 'GET',
             });
             console.log('Connection initialized')
@@ -157,7 +157,7 @@ export default function Chat() {
         
         const getMessages = async () => {
             if (localStorage.getItem('email')) {
-                const response = await fetch('http://localhost:3000/messages', {
+                const response = await fetch('http://127.0.0.1:8000/messages', {
                     method: 'GET',
                     headers: {
                         'Authorization': token ?? '',
@@ -210,7 +210,7 @@ export default function Chat() {
     //     try {
     //         setIsLoading(true)
     //         setTipsView('flex hidden')
-    //         const response = await fetch('http://localhost:3000/predict', {
+    //         const response = await fetch('http://127.0.0.1:8000/predict', {
     //             method: 'POST',
     //             headers: {
     //                 'Content-Type': 'application/json',
@@ -272,8 +272,8 @@ export default function Chat() {
                 const timer = setTimeout(() => {
                     let response: string = tips_responses[input];
                     const newMessage = { id: messageId, content: input, result: response}
-                    setTemporary('')
                     setMessages([...messages, newMessage])
+                    setTemporary('')
                 }, 3000);
 
                 return
@@ -287,7 +287,7 @@ export default function Chat() {
         try {
             setIsLoading(true)
             setTipsView('flex hidden')
-            const response = await fetch('http://localhost:3000/predict', {
+            const response = await fetch('http://127.0.0.1:8000/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -358,7 +358,7 @@ export default function Chat() {
             }
 
             const save = async () => {
-                await fetch('http://localhost:3000/save', {
+                await fetch('http://127.0.0.1:8000/save', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

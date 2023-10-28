@@ -10,3 +10,4 @@ python-dotenv
 pydantic==1.10.11
 googletrans
 pymongo
+httpcore==1.0.0

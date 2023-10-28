@@ -142,7 +142,7 @@ agent = initialize_agent(
 user_conversations = {}
                                                                                         
 def get_response(user_id, text):
-    text_language = detect_language(text)
+    # text_language = detect_language(text)
     
     if user_id not in user_conversations:
         # Initialize conversation history for new user
@@ -157,12 +157,12 @@ def get_response(user_id, text):
         # Generate response using the conversation history
         answer = agent(chat_prompt.format_prompt(input="\n".join(conversation_history)).to_string())['output']
 
-        final_output = translate(answer, text_language)
+        #final_output = translate(answer, text_language)
 
         # Append agent response to conversation history
-        conversation_history.append(final_output)
+        conversation_history.append(answer)
 
-        response = { 'result': format_output(final_output), 'source': sources(text) }
+        response = { 'result': format_output(answer), 'source': sources(text) }
         return response
     except Exception as e:
         return { "error": str(e) }
