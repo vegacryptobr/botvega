@@ -1,6 +1,7 @@
-from pymongo import MongoClient
+from pymongo import MongoClient, errors
+import os
 
-connection_string = 'mongodb+srv://contato:CteiAQXCUEndmLfy@cluster0.0rsinh8.mongodb.net/?retryWrites=true&w=majority'
+connection_string = os.getenv("connection_string")
 client = MongoClient(connection_string)
 db_connection = client["Cluster0"]
 
@@ -10,12 +11,16 @@ def get(email):
     search_filter = {"usermail": email}
     response = collection.find(search_filter)
 
-    messages = []
-
-    for item in response:
-        messages.append(item.get('message'))
-
-    return messages
+    try:
+        response = collection.find(search_filter)
+        messages = [item.get('message') for item in response]
+        return messages
+    except errors.PyMongoError as e:
+        print(f"An error occurred: {e}")
+        return []
 
 def save(message):
-    collection.insert_one(message)
+    try:
+        collection.insert_one(message)
+    except errors.PyMongoError as e:
+        print(f"An error occurred: {e}")
