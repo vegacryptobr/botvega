@@ -32,7 +32,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterClick }) => {
     }
 
     try {
-      const response = await fetch('http://vegachat.rj.r.appspot.com/auth', {
+      const response = await fetch('https://vegachat.rj.r.appspot.com/auth', {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
         body: JSON.stringify(requestBody),
@@ -83,7 +83,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterClick }) => {
     }
   
     try {
-      const response = await fetch('http://vegachat.rj.r.appspot.com/auth', {
+      const response = await fetch('https://vegachat.rj.r.appspot.com/auth', {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
         body: JSON.stringify(requestBody),

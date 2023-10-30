@@ -133,7 +133,7 @@ export default function Chat() {
     useEffect(() => {
         const initializeConnection = async () => {
             setUserId(getRandomInt(1, 1000000))
-            await fetch('http://vegachat.rj.r.appspot.com/init', {
+            await fetch('https://vegachat.rj.r.appspot.com/init', {
                 method: 'GET',
             });
             console.log('Connection initialized')
@@ -143,7 +143,7 @@ export default function Chat() {
         
         const getMessages = async () => {
             if (localStorage.getItem('email')) {
-                const response = await fetch('http://vegachat.rj.r.appspot.com/messages', {
+                const response = await fetch('https://vegachat.rj.r.appspot.com/messages', {
                     method: 'GET',
                     headers: {
                         'Authorization': localStorage.getItem("email") ?? '',
@@ -197,7 +197,7 @@ export default function Chat() {
     //     try {
     //         setIsLoading(true)
     //         setTipsView('flex hidden')
-    //         const response = await fetch('http://vegachat.rj.r.appspot.com/predict', {
+    //         const response = await fetch('https://vegachat.rj.r.appspot.com/predict', {
     //             method: 'POST',
     //             headers: {
     //                 'Content-Type': 'application/json',
@@ -272,7 +272,7 @@ export default function Chat() {
         try {
             setIsLoading(true)
             setTipsView('flex hidden')
-            const response = await fetch('http://vegachat.rj.r.appspot.com/predict', {
+            const response = await fetch('https://vegachat.rj.r.appspot.com/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -343,7 +343,7 @@ export default function Chat() {
             }
 
             const save = async () => {
-                await fetch('http://vegachat.rj.r.appspot.com/save', {
+                await fetch('https://vegachat.rj.r.appspot.com/save', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
