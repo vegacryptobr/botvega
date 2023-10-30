@@ -561,7 +561,7 @@ export default function Chat() {
                 </Card>
             )}
 
-            {messagesRemaning <= 7 && !localStorage.getItem('email') && (
+            {messagesRemaning <= 3 && !localStorage.getItem('email') && (
                 <>
                     {isLoginOpen ? (
                         <Register onLoginClick={handleLogin} />
