@@ -19,7 +19,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterClick }) => {
 
   const [logCard, setLogCard] = useState('absolute top-0 left-0 flex flex-col justify-center items-center bg-black/[0.5] backdrop-blur-sm	 w-[100vw] h-[100vh]')
 
-  const { setError, setLogMessage, setSuccessfulLogin, setToken } = useAuth();
+  const { setError, setLogMessage, setSuccessfulLogin } = useAuth();
   const { error, successfulLogin } = useAuth();
 
   const [showErrorCard, setShowErrorCard] = useState(false);
@@ -32,7 +32,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterClick }) => {
     }
 
     try {
-      const response = await fetch('https://vegachat.rj.r.appspot.com/auth', {
+      const response = await fetch('http://127.0.0.1:8000/auth', {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
         body: JSON.stringify(requestBody),
@@ -44,7 +44,6 @@ const Login: React.FC<LoginProps> = ({ onRegisterClick }) => {
       if(data.success) {
         setShowErrorCard(true)
         setSuccessfulLogin(true)
-        setToken(data.email)
         setError(`E-mail de recuperação enviado para ${data.email}.\n\nLogue novamente após a recuperação`)
       }
       
@@ -84,7 +83,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterClick }) => {
     }
   
     try {
-      const response = await fetch('https://vegachat.rj.r.appspot.com/auth', {
+      const response = await fetch('http://127.0.0.1:8000/auth', {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
         body: JSON.stringify(requestBody),
