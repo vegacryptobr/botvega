@@ -11,12 +11,12 @@ CORS(app, origins='*')
 
 config = {
     'apiKey': os.getenv('firebase_apikey'),
-    'authDomain': "botvega.firebaseapp.com",
-    'projectId': "botvega",
-    'storageBucket': "botvega.appspot.com",
-    'messagingSenderId': "133089273149",
-    'appId': "1:133089273149:web:9cf6974bf731162b4d1154",
-    'measurementId': "G-H5TQQ9V5SS",
+    'authDomain': "vegachat.firebaseapp.com",
+    'projectId': "vegachat",
+    'storageBucket': "vegachat.appspot.com",
+    'messagingSenderId': "518749814892",
+    'appId': "1:518749814892:web:2924b89034ab4b587bd849",
+    'measurementId': "G-XTLSJJLQL5",
     'databaseURL': ''
 }
 
@@ -158,4 +158,4 @@ def saveMessages():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(port=8000)
