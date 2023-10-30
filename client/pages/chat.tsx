@@ -133,7 +133,7 @@ export default function Chat() {
     useEffect(() => {
         const initializeConnection = async () => {
             setUserId(getRandomInt(1, 1000000))
-            await fetch('http://localhost:3000/init', {
+            await fetch('http://vegachat.rj.r.appspot.com/init', {
                 method: 'GET',
             });
             console.log('Connection initialized')
@@ -143,7 +143,7 @@ export default function Chat() {
         
         const getMessages = async () => {
             if (localStorage.getItem('email')) {
-                const response = await fetch('http://127.0.0.1:8000/messages', {
+                const response = await fetch('http://vegachat.rj.r.appspot.com/messages', {
                     method: 'GET',
                     headers: {
                         'Authorization': localStorage.getItem("email") ?? '',
@@ -197,7 +197,7 @@ export default function Chat() {
     //     try {
     //         setIsLoading(true)
     //         setTipsView('flex hidden')
-    //         const response = await fetch('http://localhost:3000/predict', {
+    //         const response = await fetch('http://vegachat.rj.r.appspot.com/predict', {
     //             method: 'POST',
     //             headers: {
     //                 'Content-Type': 'application/json',
@@ -253,12 +253,13 @@ export default function Chat() {
         messagesRemaning--
         setTemporary(input)
 
-        if (messagesRemaning === 7) {
+        if (messagesRemaning === 6) {
             if (tips_responses.hasOwnProperty(input)) {
                 messagesRemaning--
                 const timer = setTimeout(() => {
                     let response: string = tips_responses[input];
                     const newMessage = { id: messageId, content: input, result: response}
+                    setTemporary('')
                     setMessages([...messages, newMessage])
                 }, 3000);
             } else {
@@ -271,7 +272,7 @@ export default function Chat() {
         try {
             setIsLoading(true)
             setTipsView('flex hidden')
-            const response = await fetch('http://127.0.0.1:8000/predict', {
+            const response = await fetch('http://vegachat.rj.r.appspot.com/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -342,7 +343,7 @@ export default function Chat() {
             }
 
             const save = async () => {
-                await fetch('http://127.0.0.1:8000/save', {
+                await fetch('http://vegachat.rj.r.appspot.com/save', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -549,7 +550,7 @@ export default function Chat() {
                         </Card>
                     )}
 
-                    {messagesRemaning <= 3 && !localStorage.getItem('email') && (
+                    {messagesRemaning <= 0 && !localStorage.getItem('email') && (
                         <>
                             {isLoginOpen ? (
                                 <Register onLoginClick={handleLogin} />
