@@ -255,7 +255,6 @@ export default function Chat() {
 
         if (messagesRemaning === 6) {
             if (tips_responses.hasOwnProperty(input)) {
-                messagesRemaning--
                 const timer = setTimeout(() => {
                     setIsLoading(true)
                     let response: string = tips_responses[input];
@@ -295,6 +294,7 @@ export default function Chat() {
                 let erro = data.error
                 let newContent = (erro.split('LLM output: ')[1])
                 const newMessage = { id: messageId, content: input, result: newContent}
+                setTemporary('')
                 setMessages([...messages, newMessage])
             } else {
                 messagesRemaning--
