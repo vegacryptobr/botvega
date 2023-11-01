@@ -257,9 +257,11 @@ export default function Chat() {
             if (tips_responses.hasOwnProperty(input)) {
                 messagesRemaning--
                 const timer = setTimeout(() => {
+                    setIsLoading(true)
                     let response: string = tips_responses[input];
                     const newMessage = { id: messageId, content: input, result: response}
                     setMessages([...messages, newMessage])
+                    setTemporary('')
                 }, 3000);
                 return
             } else {
