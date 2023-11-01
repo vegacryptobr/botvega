@@ -259,9 +259,9 @@ export default function Chat() {
                 const timer = setTimeout(() => {
                     let response: string = tips_responses[input];
                     const newMessage = { id: messageId, content: input, result: response}
-                    setTemporary('')
                     setMessages([...messages, newMessage])
                 }, 3000);
+                return
             } else {
 
             }
