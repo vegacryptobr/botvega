@@ -521,7 +521,7 @@ export default function Chat() {
                                 <CardFooter className='bottom-[0vh] absolute'>
                                         {isLoading ? (
                                             <div className="flex gap-[1vh]" >
-                                                <Input type='text' className='bg-neutral-200 pl-[1.5vh] text-[1.5vh] text-neutral-800 rounded-[1vh] w-[35vw] h-[5vh] max-lg:h-[40px] placeholder:text-neutral-600 placeholder:text-sm max-lg:text-sm max-lg:w-[80vw]' placeholder="Aguarde um momento enquanto eu processo sua resposta" value={input} onChange={e => setInput(e.target.value)} />
+                                                <Input type='text' className='bg-neutral-200 pl-[1.5vh] text-[1.5vh] text-neutral-800 rounded-[1vh] w-[35vw] h-[5vh] max-lg:h-[40px] placeholder:text-neutral-600 placeholder:text-[1.5vh] max-lg:text-sm max-lg:w-[80vw]' placeholder="Aguarde um momento enquanto eu processo sua resposta" value={input} onChange={e => setInput(e.target.value)} />
                                                 <Button 
                                                 type="submit" 
                                                 className="bg-neutral-200 rounded-[1vh] lg:h-[5vh] lg:w-[3vw] hover:bg-neutral-400" 
@@ -531,7 +531,7 @@ export default function Chat() {
                                             </div>
                                         ) : (
                                             <div className="flex gap-[1vh]" >
-                                                <Input type='text' className='bg-neutral-200 pl-[1.5vh] text-[1.5vh] focus:ring-1 ring-neutral-900 text-black rounded-[1vh] w-[35vw] h-[5vh] max-lg:h-[40px] placeholder:text-neutral-600 placeholder:text-sm max-lg:text-sm max-lg:w-[80vw]' placeholder="Me faça uma pergunta sobre o Real Digital" value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyPress} />
+                                                <Input type='text' className='bg-neutral-200 pl-[1.5vh] text-[1.5vh] focus:ring-1 ring-neutral-900 text-black rounded-[1vh] w-[35vw] h-[5vh] max-lg:h-[40px] placeholder:text-neutral-600 placeholder:text-[1.5vh] max-lg:text-sm max-lg:w-[80vw]' placeholder="Me faça uma pergunta sobre o Real Digital" value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyPress} />
                                                 <Button 
                                                 type="submit" 
                                                 className="bg-neutral-200 rounded-[1vh] lg:h-[5vh] lg:w-[3vw] hover:bg-neutral-400" 
