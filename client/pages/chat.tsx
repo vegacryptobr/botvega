@@ -53,8 +53,19 @@ reduzir custos de transação, enquanto as criptomoedas são tipicamente descent
 
     'O que é a Vega Crypto?':
         `
-Vega Crypto é uma statup Brasileira de consultoria em web3 que oferece serviços de consultoria, pesquisa e educação financeira descentralizada para indivíduos e empresas.
-    `,
+Em meio ao crescente interesse global pela tecnologia blockchain e criptomoedas, surge no Brasil a Vega, uma empresa que promete revolucionar o acesso e a 
+compreensão da Web3 no país.\nA Vega estrutura-se em quatro áreas principais:
+
+1. Vega Crypto: Focado no investidor varejista, este canal busca educar sobre o mercado de criptomoedas com uma abordagem fundamentalista, afastando-se da especulação como principal motivador de investimento.
+
+2. Vega Business: Esta área é dedicada a trazer negócios significativos de Web3 para o Brasil, oferecendo suporte em estratégia, mercado, gestão de comunidade e marketing.
+
+3. Vega Educação: O braço educacional da Vega foca em crypto, blockchain e Web3. Usando um Sistema de Gestão de Aprendizado, a empresa cria jornadas de conhecimento para profissionais, preparando-os para o mercado tokenizado e apoiando instituições financeiras.
+
+4. Vega Labs: O laboratório da Vega apoia empreendedores e novos negócios dentro da Web3, oferecendo educação, desenvolvendo hackathons e incubando projetos promissores.
+
+A Vega nasceu da ambição de capturar valor na Web3, trazendo para o Brasil as mais avançadas tecnologias e conhecimentos dessa indústria. Seu objetivo principal é criar e disseminar produtos inovadores em Web3 para o mercado brasileiro. 
+        `,
 
     'Qual a diferença do Real Digital para o pix?':
         `
